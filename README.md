@@ -1,21 +1,28 @@
-# vue_demo
+### 遇到的问题
+#### less的引入
+（1）版本问题，版本不能过高否则报错
+（2）less文件会自动生成wxss文件或者css文件的问题（小程序的后遗症）
+优化：
+把所有的css可控变量使用@import来引入，这样就可以为以后维护增加便利
 
-> A Vue.js project
 
-## Build Setup
+#### elementUI组件库按需引入
+参考官方文档（安装，配置.babelrc文件）
+注意的是：官方文档会少一个插件安装：npm i babel-preset-es2015 -D//否则报es2015没有找到
+使用：
+main.js:全局引入
+import { Button } from 'element-ui';
+Vue.use(Button)
+xxx.vue:局部引入
+import { Button } from 'element-ui';
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+#### 路由懒加载问题
+问题：使用路由懒加载的时候发现报错：Unexpected token（import）
+原因：import属于异步引用组件，需要babel-loader处理
+解决：安装:npm install babel-plugin-syntax-dynamic-import -D
+      然后在.babelrc文件添加一个插件`"plugins": ["syntax-dynamic-import"]`
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+

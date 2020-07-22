@@ -11,6 +11,7 @@ export default {
 </script>
 
 
-<style>
+<style lang="less">
 /* 全局样式设置 */
+// @import './assets/css/ailibaba-icon.css';
 </style>

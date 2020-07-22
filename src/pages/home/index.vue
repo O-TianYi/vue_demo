@@ -1,30 +1,31 @@
 <template>
   <div class="container">
-      ssas
+
+    <Aside></Aside>
   </div>
 </template>
 
 <script>
+const Aside = () => import("../../components/home/aside");
+
 export default {
-  name: 'AppLayout',
+  name: "Home",
   data() {
-      return {
-          
-      }
+    return {};
   },
-}
+  components: {Aside}
+};
 </script>
 
 
 
 
 <style lang="less">
-   
 </style>
 
 <style lang="less" scoped>
-@import '../../assets/css/color-variables.less';
-.container{
-    color: @themeColor;
+@import "../../assets/css/color-variables.less";
+.container {
+  color: @themeColor;
 }
 </style>

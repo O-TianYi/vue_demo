@@ -16,6 +16,10 @@ Vue.use(Button)
 xxx.vue:局部引入
 import { Button } from 'element-ui';
 
+注意点：
+（1）修改elementUI的默认样式：
+在没有scoped的style标签中修改，在scoped中修改不起作用；或者使用.my /deep/ .el-input__inner{...}或者.my >>> .el-input__inner{....}来修改才起作用
+(2)elementUI样式失效问题，main.js引入：import 'element-ui/lib/theme-chalk/index.css';
 
 
 
@@ -24,5 +28,15 @@ import { Button } from 'element-ui';
 原因：import属于异步引用组件，需要babel-loader处理
 解决：安装:npm install babel-plugin-syntax-dynamic-import -D
       然后在.babelrc文件添加一个插件`"plugins": ["syntax-dynamic-import"]`
+知识点：
+路由懒加载的底层原理
+普通加载和路由懒加载的区别
 
 
+#### pc端和移动端
+区分pc和移动端：<960为pc端，所以使用媒体查询的时候以960px为界限进行样式的变化，例如@media screen and (min-width:960px){....}
+
+
+#### 直接改css样式
+dom.style.display="none"
+区分改class：dom.className="class-name"

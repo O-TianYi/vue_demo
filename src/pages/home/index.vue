@@ -2,18 +2,24 @@
   <div class="container">
 
     <Aside></Aside>
+
+    <Header></Header>
+    <Main></Main>
+    
   </div>
 </template>
 
 <script>
 const Aside = () => import("../../components/home/aside");
+const Header = () => import("../../components/home/header");
+const Main = () => import("../../components/home/main");
 
 export default {
   name: "Home",
   data() {
     return {};
   },
-  components: {Aside}
+  components: {Aside,Header,Main}
 };
 </script>
 

@@ -54,6 +54,9 @@ export default {
   flex-direction: column;
   justify-content: start;
   position: fixed;
+  z-index: 999;
+  top: 50%;
+  transform: translateY(-50%);
   /deep/ .el-card{
     i {
       font-size: 5vw;

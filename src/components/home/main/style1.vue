@@ -1,54 +1,74 @@
 <template>
   <div class="container">
-      <div class="box">
-        <div v-for="item in data" :key="item.id">
+    <el-tabs type="border-card">
+      <el-tab-pane label="用户管理">
+        <div v-for="item in data" :key="item.id" class="nav1">
           <div class="icon">
             <i class="iconfont icon-weixin"></i>
           </div>
           <div class="text">
             <header>{{item.title}}</header>
-            <main>
-              {{item.text}}
-            </main>
+            <main>{{item.text}}</main>
           </div>
         </div>
-      </div>
+      </el-tab-pane>
+      <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Style1',
+  name: "Style1",
   data() {
-      return {
-          data:[
-            {id:1,icon:"",title:'标题1',text:"如上图，两端对齐相对于左对齐，视觉上显得整齐有序。但justify对最后一行无效，通常这样的排版对整段文字是极好的，我们并不希望当最后一行只有两个字时也两端对齐，毕竟这是不便于阅读的，那么当我们只有一行文本，但要实现单行文本两端对齐怎么解决（如下图的表单项效果"},
-            {id:2,icon:"",title:'标题1',text:"1"},
-            {id:3,icon:"",title:'标题1',text:"1"},
-            {id:4,icon:"",title:'标题1',text:"1"},
-          ]
-      }
+    return {
+      data: [
+        {
+          id: 1,
+          icon: "",
+          title: "标题1",
+          text:
+            "如上图，两端对齐相对于左对齐，视觉上显得整齐有序。但justify对最后一行无效，通常这样的排版对整段文字是极好的，我们并不希望当最后一行只有两个字时也两端对齐，毕竟这是不便于阅读的，那么当我们只有一行文本，但要实现单行文本两端对齐怎么解决（如下图的表单项效果",
+        },
+        { id: 2, icon: "", title: "标题1", text: "1" },
+        { id: 3, icon: "", title: "标题1", text: "1" },
+        { id: 4, icon: "", title: "标题1", text: "1" },
+      ],
+    };
   },
-}
+};
 </script>
 
 
 
 <style lang="less" scoped>
 @import "../../../assets/css/ailibaba-icon.css";
-.box{
+.container {
   display: flex;
   flex-wrap: wrap;
-  height: 45vw;
-  div{
+  padding:0;
+  /deep/.el-tabs{
+    width: 100%;
+  }
+  /deep/ .el-tabs__content {
+      padding: 2%;
+    }
+  /deep/ .el-tab-pane{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .nav1{
     text-align: center;
     width: 50%;
     height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: gray;
-    .icon{
+    :nth-child(1),:nth-child(2){
+      margin-bottom: 2%;
+    }
+    .icon {
       border: 1px solid rgb(126, 227, 235);
       width: 5vw;
       height: 5vw;
@@ -56,27 +76,26 @@ export default {
       left: 50%;
       top: 10%;
       transform: translateX(-50%) rotate(45deg);
-      i{
+      i {
         position: absolute;
         font-size: 4vw;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
       }
     }
-    .text{
+    .text {
       width: 100%;
       padding: 2vw;
       box-sizing: border-box;
-      font-size: 3vw;
+      font-size: 2vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: yellow;
-      header{
+      header {
         font-weight: 600;
       }
-      main{
+      main {
         line-height: 3vw;
         text-align: justify;
         text-overflow: ellipsis;

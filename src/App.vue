@@ -11,7 +11,7 @@ export default {
 </script>
 
 
-<style lang="less">
+<style>
 *{
   padding:0;
   margin:0;
@@ -19,5 +19,4 @@ export default {
   text-decoration: none;
 }
 /* 全局样式设置 */
-// @import './assets/css/ailibaba-icon.css';
 </style>

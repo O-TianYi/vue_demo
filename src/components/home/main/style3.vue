@@ -1,18 +1,20 @@
  <template>
   <div class="container">
-    <div class="left">
-      <el-image
-        src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-        fit="fill"
-      ></el-image>
-    </div>
-    <div class="right">
-      <h3>文字轮播</h3>
-      <el-carousel :interval="2000" arrow="never">
-        <el-carousel-item v-for="item in box3Text" :key="item.id">
-          <div class="text">{{item.text}}</div>
-        </el-carousel-item>
-      </el-carousel>
+    <div class="main">
+      <div class="left">
+        <el-image
+          src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+          fit="fill"
+        ></el-image>
+      </div>
+      <div class="right">
+        <h2>文字轮播</h2>
+        <el-carousel :interval="2000" arrow="never">
+          <el-carousel-item v-for="item in box3Text" :key="item.id">
+            <div class="text">{{item.text}}</div>
+          </el-carousel-item>
+        </el-carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -47,45 +49,38 @@ export default {
 
 
 <style lang="less" scoped>
-.container {
+.main {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 0;
   justify-content: space-between;
   .left {
-    padding: 2vw;
     width: 30%;
     margin-right: 2%;
     /deep/ .el-image {
-      height: 23vw;
+      height: 20vw;
     }
   }
   .right {
     background: yellow;
     flex: 1;
     display: flex;
-    height: 27vw;
+    height: 20vw;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 1% 2% 2% 2%;
+    justify-content: center;
+    align-content: center;
+    padding: 5%;
     box-sizing: border-box;
     overflow: hidden;
-    h3{
-      font-size: 3vw;
+    h2 {
+      margin-bottom: 5%;
     }
     /deep/ .el-carousel__container {
-      padding: 2%;
+      height: 8vw;
       .text {
-        // line-height: 2vw;
-        font-size: 2vw;
+        line-height: 2vw;
       }
     }
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .container {
-    font-size: 20px;
   }
 }
 </style>
